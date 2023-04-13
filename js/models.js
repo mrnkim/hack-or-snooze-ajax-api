@@ -71,7 +71,8 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(currentUser, story) {
+  static async addStory(currentUser, story) {
+    console.log("currentUser=", currentUser, story);
     // UNIMPLEMENTED: complete this function!
 
     //need the token -> get that from user or local storage
@@ -93,7 +94,7 @@ class StoryList {
         story: story,
       },
     });
-
+    console.log("response=", response);
     const newStory = new Story(response.data.story);
 
     return newStory;

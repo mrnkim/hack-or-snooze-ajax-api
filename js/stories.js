@@ -52,14 +52,22 @@ function putStoriesOnPage() {
 }
 
 /** Gets data from the form, creates and shows new story */
-function submitNewStoryAndShow() {
-  //get the data from the form
-  // call .addstory()
-  //show it on the page
+async function submitNewStoryAndShow() {
+  const formData = getDataFromForm()
+
+
+  const newStory = await StoryList.addStory(currentUser, formData)
+  console.log('newStory=', newStory)
+
+  putStoriesOnPage()
+
+
+  //access story container + append storyMarkup to top
+
 }
 
-//get the data from the form
-function getDatafromForm() {
+/** gets the data from the form and returns it */
+function getDataFromForm() {
   let title = $inputTitle.val();
   let author = $inputAuthor.val();
   let url = $inputUrl.val();
@@ -68,3 +76,4 @@ function getDatafromForm() {
 }
 
 //event listener on submit button
+$submitForm.on('submit', submitNewStoryAndShow)
