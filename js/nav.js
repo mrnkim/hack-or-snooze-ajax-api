@@ -37,4 +37,10 @@ function updateNavOnLogin() {
   $navUserProfile.text(`${currentUser.username}`).show();
 }
 
-//new code goes here.
+/** show submit form on click on "submit" link */
+function navSubmitClick(evt) {
+  evt.preventDefault(); //QUESTION: is it necessary?
+  $submitForm.toggleClass("hidden");
+}
+
+$submitNewStory.on("click", navSubmitClick);

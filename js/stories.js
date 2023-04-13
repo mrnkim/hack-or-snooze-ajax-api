@@ -50,3 +50,21 @@ function putStoriesOnPage() {
 
   $allStoriesList.show();
 }
+
+/** Gets data from the form, creates and shows new story */
+function submitNewStoryAndShow() {
+  //get the data from the form
+  // call .addstory()
+  //show it on the page
+}
+
+//get the data from the form
+function getDatafromForm() {
+  let title = $inputTitle.val();
+  let author = $inputAuthor.val();
+  let url = $inputUrl.val();
+
+  return { title, author, url };
+}
+
+//event listener on submit button
