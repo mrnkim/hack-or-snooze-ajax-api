@@ -75,8 +75,18 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( token, newStory) {
+
+  async addStory(user, newStory) {
     // UNIMPLEMENTED: complete this function!
+    
+
+
+    //need the token -> get that from user or local storage
+    //what does the the user arg look like
+    //where do we get the token?
+
+
+    //need base_URL -> already there
 
     // making POST request. we need token
     // To get token - retrieve a token form the local storage
