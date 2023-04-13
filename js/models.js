@@ -21,6 +21,8 @@ class Story {
     this.createdAt = createdAt;
   }
 
+
+
   /** Parses hostname out of URL and returns it. */
 
   getHostName() {
@@ -73,8 +75,24 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( /* user, newStory */) {
+  async addStory( token, newStory) {
     // UNIMPLEMENTED: complete this function!
+
+    // making POST request. we need token
+    // To get token - retrieve a token form the local storage
+
+
+    const options = await axios({
+      method: 'POST',
+      baseURL: BASE_URL;
+      url: '/stories',
+      headers: {'Content-Type': 'application/json'},
+      data: {
+        token: `${token}`,
+        story: newStory
+      }
+    });
+
   }
 }
 
