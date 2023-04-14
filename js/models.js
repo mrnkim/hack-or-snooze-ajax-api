@@ -114,6 +114,28 @@ class User {
     this.loginToken = token;
   }
 
+  async addFavorite(story) {
+    //POST story to the server(favorites list)
+    //TODO: update "kim", "stoyId", token
+    const options = {
+      method: "POST",
+      baseURL: BASE_URL,
+      url: "/users/Kim/favorites/d6d05c7e-208e-4d29-8de2-f566a08e2f4a",
+      headers: { "Content-Type": "application/json" },
+      data: {
+        token:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktpbSIsImlhdCI6MTY4MTQxNzQyMH0.YwYDKaOzO4BUETnxHfrjBeik5-KXUuR73j-JrPFMPcI",
+      },
+    };
+
+    let response = await axios.request(options);
+    console.log("response= ", response);
+
+    //get response -> update favorites in the class
+    this.favorites = response.data.user.favorites.map((s) => new Story(s));
+    console.log("favorites= ", this.favorites);
+  }
+
   /** Register new user in API, make User instance & return it.
    *
    * - username: a new username
