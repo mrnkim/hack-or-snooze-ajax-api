@@ -75,15 +75,7 @@ class StoryList {
     console.log("currentUser=", currentUser, story);
     // UNIMPLEMENTED: complete this function!
 
-    //need the token -> get that from user or local storage
-    //what does the the user arg look like
-    //where do we get the token?
-
-    //need base_URL -> already there
-
-    // making POST request. we need token
-    // To get token - retrieve a token form the local storage
-
+    console.log("token=", currentUser.loginToken);
     const response = await axios({
       method: "POST",
       baseURL: BASE_URL,
@@ -94,6 +86,24 @@ class StoryList {
         story: story,
       },
     });
+
+    // const options = {
+    //   method: "POST",
+    //   url: "https://hack-or-snooze-v3.herokuapp.com/stories",
+    //   headers: { "Content-Type": "application/json" },
+    //   data: {
+    //     token:
+    //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IktpbSIsImlhdCI6MTY4MTQxNzQyMH0.YwYDKaOzO4BUETnxHfrjBeik5-KXUuR73j-JrPFMPcI",
+    //     story: {
+    //       author: story.author,
+    //       title: story.title,
+    //       url: story.url,
+    //     },
+    //   },
+    // };
+
+    // const response = await axios.request(options);
+
     console.log("response=", response);
     const newStory = new Story(response.data.story);
 

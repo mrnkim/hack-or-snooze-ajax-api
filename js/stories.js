@@ -53,17 +53,14 @@ function putStoriesOnPage() {
 
 /** Gets data from the form, creates and shows new story */
 async function submitNewStoryAndShow() {
-  const formData = getDataFromForm()
+  const formData = getDataFromForm();
 
+  const newStory = await StoryList.addStory(currentUser, formData);
+  console.log("newStory=", newStory);
 
-  const newStory = await StoryList.addStory(currentUser, formData)
-  console.log('newStory=', newStory)
+  putStoriesOnPage();
 
-  putStoriesOnPage()
-
-
-  //access story container + append storyMarkup to top
-
+  //TODO: figure out how to load the added story immediately (https://api.jquery.com/load/)
 }
 
 /** gets the data from the form and returns it */
@@ -76,4 +73,4 @@ function getDataFromForm() {
 }
 
 //event listener on submit button
-$submitForm.on('submit', submitNewStoryAndShow)
+$submitForm.on("submit", submitNewStoryAndShow);
