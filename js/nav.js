@@ -50,24 +50,13 @@ $submitNewStory.on("click", navSubmitClick);
 function navFavoritesClick(evt) {
   evt.preventDefault();
 
+  putFavoriteStoriesOnPage();
+
   $favoritesList.toggleClass("hidden");
   $submitForm.toggleClass("hidden");
   hidePageComponents();
-
-  // $allStoriesList.toggleClass("hidden");
-
-  //make the empty favorites list element with a class of hidden
-
-  // toggle class hidden on favorites list
-
-  // toggle class hidden on main list
 }
 
 $navFavorites.on("click", navFavoritesClick);
 
-// show the favorites list (html element)
 
-// append each favorite story to the favorites list
-function generateFavoriteList() {}
-// append each favorite story to the favorites list
-// update star icon (with filled)
