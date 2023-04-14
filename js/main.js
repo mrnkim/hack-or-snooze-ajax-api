@@ -20,6 +20,8 @@ const $inputAuthor = $("#story-author");
 const $inputTitle = $("#story-title");
 const $inputUrl = $("#story-url");
 
+const $favorites = $("#nav-favorites");
+
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
  * calling this, individual components can re-show just what they want.

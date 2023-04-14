@@ -44,3 +44,22 @@ function navSubmitClick(evt) {
 }
 
 $submitNewStory.on("click", navSubmitClick);
+
+/** When a user clicks favorites, fetch and show favorites list */
+
+function navFavoritesClick(evt) {
+evt.prentDefault();
+
+
+// hide the main list and
+// show the favorites list (html element)
+// append each favorite story to the favorites list
+// update star icon (with filled)
+}
+
+// show the favorites list (html element)
+
+// append each favorite story to the favorites list
+function generateFavoriteList() {
+
+}

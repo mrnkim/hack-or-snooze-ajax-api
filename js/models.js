@@ -25,6 +25,15 @@ class Story {
     const host = new URL(this.url).hostname;
     return host;
   }
+
+  static async getStoryById(storyId) {
+    let stories = storyList.stories;
+    for (let story of stories) {
+      if (story.storyId === storyId) {
+        return story;
+      }
+    }
+  }
 }
 
 /******************************************************************************
@@ -151,8 +160,6 @@ class User {
     };
 
     let response = await axios.request(options);
-
-
 
     //TODO:
     //sideeffects
