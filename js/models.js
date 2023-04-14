@@ -24,6 +24,27 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
+
+    //access the URL
+    let fullUrl = this.url;
+    console.log("fullURL=", fullUrl);
+
+    //findIndex of second '/' character
+    let indexOfFirstChar = fullUrl.indexOf("/") + 1;
+    // console.log("firstChar=", indexOfFirstChar);
+
+    //slice the url string from index firstChar + 1
+    //call indexOf('/') on the slice ->
+    let indexOfSecondChar = fullUrl.slice(indexOfFirstChar + 1).indexOf("/");
+    // console.log("indexOfSecondChar=", indexOfSecondChar) + indexOfFirstChar + 1
+
+    let hostName = fullUrl.slice(indexOfFirstChar, indexOfSecondChar)
+    console.log('hostName=', hostName)
+
+    //access the domain only
+    //format a string per below, and return it
+
+    //returned format should be www.HOSTNAME.com with all else truncated
     return "hostname.com";
   }
 }
