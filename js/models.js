@@ -114,6 +114,7 @@ class User {
     this.loginToken = token;
   }
 
+  //TODO: review before requestion CR.
   async addFavorite(story) {
     const { storyId } = story;
     const { username, loginToken } = currentUser;
@@ -124,8 +125,7 @@ class User {
       url: `/users/${username}/favorites/${storyId}`,
       headers: { "Content-Type": "application/json" },
       data: {
-        token:
-          `${loginToken}`,
+        token: `${loginToken}`,
       },
     };
 
@@ -133,6 +133,35 @@ class User {
 
     //get response -> update favorites in the class
     this.favorites = response.data.user.favorites.map((s) => new Story(s));
+  }
+
+  //remove from favorites
+  async removeFavorite(story) {
+    const { storyId } = story;
+    const { username, loginToken } = currentUser;
+
+    const options = {
+      method: "DELETE",
+      baseURL: BASE_URL,
+      url: `/users/${username}/favorites/${storyId}`,
+      headers: { "Content-Type": "application/json" },
+      data: {
+        token: `${loginToken}`,
+      },
+    };
+
+    let response = await axios.request(options);
+
+
+
+    //TODO:
+    //sideeffects
+    //remove story UI element from user list -> seperate function
+    //re-render favorites list from
+    this.favorites = response.data.user.favorites.map((s) => new Story(s));
+
+    //update start icon on main paige to reflect removal from favorites
+    //seperate function -> this operation depends on the "hint" function working
   }
 
   /** Register new user in API, make User instance & return it.
