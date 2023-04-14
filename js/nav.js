@@ -40,7 +40,7 @@ function updateNavOnLogin() {
 /** show submit form on click on "submit" link */
 function navSubmitClick(evt) {
   evt.preventDefault(); //QUESTION: is it necessary?
-  $submitForm.toggleClass("hidden");
+  $submitForm.show();
 }
 
 $submitNewStory.on("click", navSubmitClick);
@@ -48,18 +48,26 @@ $submitNewStory.on("click", navSubmitClick);
 /** When a user clicks favorites, fetch and show favorites list */
 
 function navFavoritesClick(evt) {
-evt.prentDefault();
+  evt.preventDefault();
 
+  $favoritesList.toggleClass("hidden");
+  $submitForm.toggleClass("hidden");
+  hidePageComponents();
 
-// hide the main list and
+  // $allStoriesList.toggleClass("hidden");
+
+  //make the empty favorites list element with a class of hidden
+
+  // toggle class hidden on favorites list
+
+  // toggle class hidden on main list
+}
+
+$navFavorites.on("click", navFavoritesClick);
+
 // show the favorites list (html element)
+
+// append each favorite story to the favorites list
+function generateFavoriteList() {}
 // append each favorite story to the favorites list
 // update star icon (with filled)
-}
-
-// show the favorites list (html element)
-
-// append each favorite story to the favorites list
-function generateFavoriteList() {
-
-}
