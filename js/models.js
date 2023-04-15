@@ -26,6 +26,7 @@ class Story {
     return host;
   }
 
+  //FIXME: fetch story from the API (by storyId) then returns a story instance
   static async getStoryById(storyId) {
     let stories = storyList.stories;
     for (let story of stories) {
@@ -124,9 +125,10 @@ class User {
   }
 
   //TODO: review before requestion CR.
+  //FIXME: add to the JS list first -> send POST request to server
   async addFavorite(story) {
     const { storyId } = story;
-    const { username, loginToken } = currentUser;
+    const { username, loginToken } = currentUser; //FIXME: currentUser -> this
 
     const options = {
       method: "POST",
@@ -145,6 +147,7 @@ class User {
   }
 
   //remove from favorites
+  //FIXME: update the JS list (using filter) -> send DELETE request to server
   async removeFavorite(story) {
     const { storyId } = story;
     const { username, loginToken } = currentUser;
